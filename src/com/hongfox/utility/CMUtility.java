@@ -84,6 +84,48 @@ public class CMUtility {
 		String str = readKeyBoard(1, true);
 		return (str.equals("")) ? defaultValue : str.charAt(0);
 	}
+	
+	/**
+	 * 
+	 * @Description 创建用户时输入账户余额以及汇率等等。
+	 * @author yanhong hong Email:a524664992@gmail.com
+	 * @version
+	 * @data 2020年5月3日下午12:05:14
+	 *
+	 *
+	 * @return
+	 *
+	 */
+	public static double readDouble() {
+		double num;
+		String str;
+		for (;;) {
+			str = readKeyBoard(10, false);
+			try {
+				num = Double.parseDouble(str);
+				return num;
+			}catch(NumberFormatException e){
+				System.out.println("wrong input,please enter a double type number.");
+			}
+		}
+	}
+	
+	public static double readDouble(double defaultValue) {
+		double num;
+		String str;
+		for (;;) {
+			str = readKeyBoard(10, true);
+			if (str.equals("")) {
+				return defaultValue;
+			}
+			try {
+				num = Double.parseDouble(str);
+				return num;
+			}catch(NumberFormatException e) {
+				System.out.println("wrong input,please enter a double type number.");
+			}
+		}
+	}
 
 	/**
 	 * 
